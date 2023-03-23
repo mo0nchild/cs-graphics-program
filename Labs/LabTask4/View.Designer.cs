@@ -85,6 +85,7 @@
             MaximumSize = new Size(900, 900);
             MinimumSize = new Size(900, 900);
             Name = "View";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Лабораторная работа 4";
             ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
             ResumeLayout(false);

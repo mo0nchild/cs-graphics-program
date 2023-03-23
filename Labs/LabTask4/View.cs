@@ -32,7 +32,7 @@ namespace CSGraphicsProgram.Labs.LabTask4
         {
             using (var color_dialog = new ColorDialog() { SolidColorOnly = true })
             {
-                if(color_dialog.ShowDialog() != DialogResult.OK) return;
+                if (color_dialog.ShowDialog() != DialogResult.OK) return;
                 this.button_color.BackColor = color_dialog.Color;
             }
         }
