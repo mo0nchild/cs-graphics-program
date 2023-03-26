@@ -27,7 +27,7 @@ namespace CSGraphicsProgram.Labs.LabTask3
             this.InitializeComponent(); this.DoubleBuffered = true;
             this.buttonColor.BackColor = Color.Crimson;
             this.LogicInstance = new TaskLogic(new TaskLogic.DrawBorderHandler(this.DrawFractal));
-
+             
             this.buttonColor.Click += new EventHandler(this.ButtonColorClickHandler);
             this.numericUpDown1.ValueChanged += new EventHandler(this.NumericUpDownValueChanged);
 

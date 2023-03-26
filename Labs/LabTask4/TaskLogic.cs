@@ -11,9 +11,12 @@ namespace CSGraphicsProgram.Labs.LabTask4
     public static class TaskLogic : System.Object
     {
         public static System.Int32 BorderWidth { get; set; } = 5;
+        public static System.Int32 EllipseRadius { get; set; } = View.VertexSize;
+
         public static void DrawCustomBezier(this Graphics graphic, ModelRecord record, Color color, 
             bool draw_info = false)
         {
+            var R = TaskLogic.EllipseRadius;
             using (var border = new Pen(new SolidBrush(color), TaskLogic.BorderWidth))
             {
                 graphic.DrawBezier(border, record.start, record.control1, record.control2, record.finish);
@@ -21,11 +24,11 @@ namespace CSGraphicsProgram.Labs.LabTask4
             if (draw_info == false) return;
             using (var info_brush = new SolidBrush(Color.Green))
             {
-                graphic.FillEllipse(info_brush, record.start.X - 5, record.start.Y - 5, 10, 10);
-                graphic.FillEllipse(info_brush, record.control1.X - 5, record.control1.Y - 5, 10, 10);
+                graphic.FillEllipse(info_brush, record.start.X - (R / 2), record.start.Y - (R / 2), R, R);
+                graphic.FillEllipse(info_brush, record.control1.X - (R / 2), record.control1.Y - (R / 2), R, R);
 
-                graphic.FillEllipse(info_brush, record.control2.X - 5, record.control2.Y - 5, 10, 10);
-                graphic.FillEllipse(info_brush, record.finish.X - 5, record.finish.Y - 5, 10, 10);
+                graphic.FillEllipse(info_brush, record.control2.X - (R / 2), record.control2.Y - (R / 2), R, R);
+                graphic.FillEllipse(info_brush, record.finish.X - (R / 2), record.finish.Y - (R / 2), R, R);
 
                 using var info_pen = new Pen(info_brush, 2);
                 graphic.DrawLine(info_pen, record.start, record.control1);
